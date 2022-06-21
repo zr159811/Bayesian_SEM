@@ -1,0 +1,865 @@
+%% LyX 2.2.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[10pt,english,aspectratio=1609]{beamer}
+\usepackage{lmodern}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\usepackage[natbibapa]{apacite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{dcolumn}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{graphicx}
+\newcommand\makebeamertitle{\frame{\maketitle}}%
+\renewcommand{\doiprefix}{doi:\kern-1pt}
+\setlength{\bibsep}{10pt}
+
+% use 'handout' to produce handouts
+%\documentclass[handout]{beamer}
+\usepackage{wasysym}
+\usepackage{pgfpages}
+%for bold upright roman in math for matrix algebra
+\newcommand{\vn}[1]{\mbox{{\it #1}}}\newcommand{\vb}{\vspace{\baselineskip}}\newcommand{\vh}{\vspace{.5\baselineskip}}\newcommand{\vf}{\vspace{\fill}}\newcommand{\splus}{\textsf{S-PLUS}}\newcommand{\R}{\textsf{R}}
+
+%%\input{theme/guidePreambleSweavel.tex} 
+%%% From beamer slide:
+\usepackage{Sweave}
+%% 
+%% This controls display of code chunks
+\usepackage{ae,fancyvrb,relsize,listings}
+
+\providecommand{\Sweavesize}{\normalsize}
+\providecommand{\Rsize}{}
+\renewcommand{\Rsize}{\normalsize}
+\providecommand{\Routsize}{\scriptsize}
+
+\providecommand{\Rcolor}{\color[rgb]{0.1, 0.1, 0.1}}
+\providecommand{\Routcolor}{\color[rgb]{0.2, 0.2, 0.2}}
+\providecommand{\Rcommentcolor}{\color[rgb]{0.101, 0.43, 0.432}}
+
+\providecommand{\Rbackground}{\color[gray]{0.91}}
+\providecommand{\Routbackground}{\color[gray]{0.935}}
+% Can specify \color[gray]{1} for white background or just \color{white}
+
+\lstdefinestyle{Rinput}{
+  language=R,
+  escapechar=`,
+  fancyvrb=false,%
+  tabsize=2,%
+  breaklines=true,
+  breakatwhitespace=true,%
+  captionpos=b,%
+  frame=single,%
+  framerule=0.2pt,%
+  framesep=1pt,%
+  showstringspaces=false,%
+  basicstyle=\Rsize\Rcolor\ttfamily,%
+  columns=fixed%,
+  \lst@ifdisplaystyle\scriptsize\fi,%,
+  commentstyle=\Rcommentcolor\ttfamily,%
+  identifierstyle=,%
+  keywords=\bfseries,%
+  keywordstyle=\color[rgb]{0, 0.5, 0.5},
+  escapeinside={(*}{*)},
+  literate={~}{{$\sim$}}1{==}{{=\,=}}2{--}{{-\,-}}2,
+  alsoother={$},
+  alsoletter={.<-},%
+  otherkeywords={!,!=,~,$$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-,/},%
+  backgroundcolor=\Rbackground,%
+  numbers=left,%
+  %numberblanklines=false,%
+  stepnumber=5,
+  firstnumber=1,
+  numberstyle={\tiny}
+}%
+
+% Other options of interest:
+% frame=single,framerule=0.1pt,framesep=1pt,rulecolor=\color{blue},
+% numbers=left,numberstyle=\tiny,stepnumber=1,numbersep=7pt,
+% keywordstyle={\bf\Rcolor}
+
+\lstdefinestyle{Routput}{fancyvrb=false,
+  literate={~}{{$\sim$}}1{R^2}{{$R^{2}$}}2{^}{{$^{\scriptstyle\wedge}$}}1{R-squared}{{$R^{2}$}}2,%
+  basicstyle=\Routcolor\Routsize\ttfamily,%
+  backgroundcolor=\Routbackground,
+  language=R,
+  escapechar=`,
+  fancyvrb=false,%
+  tabsize=2,%
+  breaklines=true,
+  breakatwhitespace=true,%
+  captionpos=b,%
+  frame=single,%
+  framerule=0.2pt,%
+  framesep=1pt,%
+  showstringspaces=false,%
+  columns=fixed%,
+  \lst@ifdisplaystyle\scriptsize\fi,%
+  identifierstyle=,%
+  keywords=\bfseries,%
+  keywordstyle=\color[rgb]{0, 0.5, 0.5},
+  escapeinside={(*}{*)},
+  literate={~}{{$\sim$}}1 {==}{{=\,=}}2,
+  alsoother={$},
+  alsoletter={.<-},%
+  otherkeywords={!,!=,~,$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-,/},
+  numbers=left,
+  %numberblanklines=false,%
+  stepnumber=5,
+  firstnumber=1,
+  numberstyle={\tiny}
+}
+
+\renewenvironment{Schunk}{}{}
+\renewenvironment{Sinput}{}{}
+\let\Sinput\relax
+\let\Scode\relax
+\let\Soutput\relax
+\lstnewenvironment{Sinput}{\lstset{style=Rinput}}{}
+\lstnewenvironment{Scode}{\lstset{style=Rinput}}{}
+\lstnewenvironment{Soutput}{\lstset{style=Routput}}{}
+%%end paste in from guidePreambleSweavel.tex
+
+
+\lstset{tabsize=2, breaklines=true, style=Rinput, breakatwhitespace=true}
+
+\fvset{listparameters={\setlength{\topsep}{0em}}}
+
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.90}
+\usepackage{realboxes}
+\providecommand*{\code}[1]{\texttt{#1}}
+\renewcommand{\code}[1]{%
+\Colorbox{light-gray}{#1}%
+}%
+%% end of paste
+
+\usepackage[natbibapa]{apacite}
+
+\definecolor{darkblue}{HTML}{1e2277}
+
+%would be in beamerthemekucrmda%
+\mode<presentation>
+\definecolor{kublue}{RGB}{0,81,186}
+\usefonttheme{professionalfonts}
+\useoutertheme{infolines}
+\useinnertheme{rounded}
+%disable rounded for alert and example boxes%
+\setbeamertemplate{blocks}[default]
+\usecolortheme{whale}
+\usecolortheme{orchid}
+\setbeamercolor{structure}{bg=kublue,fg=kublue!90!black}
+%\setbeamercolor{structure}{fg=kublue}
+\setbeamercolor{frametitle}{bg=kublue}
+\setbeamercolor{section in toc}{fg=kublue!40!black}
+
+\setbeamertemplate{frametitle continuation}[from second]
+\renewcommand\insertcontinuationtext{...}
+\beamertemplatenavigationsymbolsempty
+%end of beamerthemekucrmda%
+
+%If you want bigger margins, try this:
+\setbeamersize{text margin left=05mm,text margin right=10mm} 
+\hypersetup{colorlinks,allcolors=.,urlcolor=darkblue}
+%Following seems to have no effect now
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper, border shrink=5mm]
+
+\titlegraphic{\includegraphics[width=6cm]{theme/logo}}
+\logo{\includegraphics[width=5mm]{theme/logomini}}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+%following is LyX shortcut \vb for bold upright math for matrices
+
+\global\long\def\vb#1{\bm{\mathrm{#1}}}
+
+% tmpout directory must exist first
+<<tmpout, echo=FALSE, include=FALSE, results=hide>>=
+tdir <- "tmpout"
+if(!dir.exists(tdir)) dir.create(tdir, showWarnings=FALSE)
+@
+% In document Latex options:
+\fvset{listparameters={\setlength{\topsep}{0em}}}
+\SweaveOpts{prefix.string=tmpout/t,split=T,ae=F,height=4.5,width=7}
+
+<<excludemeRoptions, include=F, results=hide>>=
+opts.orig <- options()
+options(width=100, prompt = " ", continue = "  ")
+options(useFancyQuotes = FALSE)
+set.seed(12345)
+par.orig <- par(no.readonly = TRUE) 
+pjmar <- c(4.1, 4.1, 1.5, 2.1)
+options(SweaveHooks=list(fig=function() par(mar=pjmar, ps=12, xpd=F)))
+pdf.options(onefile=F,family="Times",pointsize=12)
+if(!file.exists("theme")) file.symlink("../../../../template/theme", "theme")
+@
+
+\title[Bayes SEM]{Bayesian SEM and Interaction Effects}
+\author[Roman]{Zachary Roman M.S.\inst{1}}
+\institute[CRMDA]{\inst{1}Center for Research Methods and Data Analysis and Psychology Department }
+\date{2018}
+\makebeamertitle
+\AtBeginSection[]{
+  \frame<beamer>{ 
+    \frametitle{Outline}
+    \tableofcontents[currentsection] 
+  }
+}
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Outline}
+\tableofcontents{}
+\end{frame}
+
+
+
+\section{Interaction Terms: Brief Review}
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+Many meaningful hypothesis can only be tested with interaction terms. When we hypothesize that the relationship between two variables is different because of a third we are referring to interaction effects.
+\frametitle{Interaction Terms}
+\begin{itemize}
+\item IQ positively predicts education (in years) but the relationship varies by SES. 
+\item GPA positively predicts salary, but the relationship differs by gender.
+\item Bench press weight positively predicts squat weight but the relationship differs by height.
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Regression: Interaction Term}
+\huge{
+$$y = \beta_{0} + \beta_{1}x_{1} + \beta_{2}x_{2} + \underbrace{\beta_{3}x_{1} \cdot x_{2}}_\text{product term} + \epsilon $$}
+\end{frame}
+
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Interaction Terms}
+\begin{itemize}
+\item Categorical by Continuous 
+\begin{itemize}
+\item IQ predicts Income, but has a different relationship (slope) at varying levels of education
+\end{itemize}
+\end{itemize}
+<<sess10, echo = FALSE, fig = T>>=
+library(MASS)
+library(ggplot2)
+set.seed(1856)
+x1 <- data.frame(rep("College", 50),
+                 mvrnorm(n = 50, mu = c(100, 100),
+                         Sigma = matrix(c(15, 10, 10, 15),
+                                        nrow = 2)))
+colnames(x1) <- c("Education", "IQ","Income")
+x2 <- data.frame(rep("HS", 50),
+                 mvrnorm(n = 50, mu = c(100, 100),
+                         Sigma = matrix(c(15, 3, 3, 15),
+                                        nrow = 2)))
+colnames(x2) <- c("Education", "IQ","Income")
+dat2 <- rbind(x1,x2)
+ggplot(data = dat2, aes(x = IQ, y = Income, color = Education)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, fullrange = T)+
+  ggtitle("Interaction of Education and IQ predicting Income") +
+  theme_bw()
+@
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Interaction Terms}
+\begin{itemize}
+\item Continuous by Continuous 
+\begin{itemize}
+\item Interpreting continuous by continuous interactions cannot be done with just a coefficient. We typically plot simple slopes to "probe" the relationship.
+\end{itemize}
+\end{itemize}
+<<sess0001, echo = FALSE>>=
+set.seed(1857)
+x1 <- rnorm(100,3,10)
+x2 <- rnorm(100,2,10)
+y <- x1+x2+x1*x2+rnorm(100,3,2)
+dat <- data.frame(Income=y,IQ=x1,PSES=x2)
+res <- lm(Income~PSES*IQ,data=dat)
+z1 <- z2 <- seq(-1,1)
+newdf <- expand.grid(IQ=z1,PSES=z2)
+
+summary(lm(data = dat, Income ~ IQ*PSES))
+
+@
+\framebreak
+
+
+
+
+
+\begin{itemize}
+\item IQ predicts Income, but has differing slopes at high and low levels of parent SES
+\end{itemize}
+<<sess11, echo = FALSE, fig = T>>=
+ggplot(data=transform(newdf, Income=predict(res, newdf)), 
+        aes(y=Income, x=PSES, color=factor(IQ))) + stat_smooth(method=lm)+ geom_point() +
+        scale_colour_discrete(name="Parent SES SDs") + 
+        labs(x="Standardized IQ", y="Standardized Income") + 
+        scale_x_continuous(breaks=seq(-1,1)) + theme_bw() +
+        ggtitle("Interaction of Parent SES and IQ on Income: Simple Slopes")
+@
+\end{frame}
+
+
+
+
+
+
+\section{Kenny and Judd 1984: Motivation for Latent Interaction terms}
+
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Kenny and Judd 1984}
+\cite{kenny1984estimating} Hypothesized that voters positions (V) on an issue and her/his judgment of the candidates position (C) on that issue, should be "moderated" by the voters sentiment (S) of the candidate. In other words, they predict if people like a candidate, they perceive the candidates stance on an issue to be more similar to their own.
+
+
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Kenny & Judd 1984}
+Kenny /& Judd utilized the 1968 National election survey conducted by the University of Michigan \citep{judd1983judging}.
+\begin{itemize}
+\item Voters Position (2 Items): Likert 0 - 7
+\begin{enumerate}
+\item How strong is your position on crime in the US?
+\item How much do you support the US inclusion in the Vietnam War?
+\end{enumerate}
+\item Candidate Position (2 Items): Likert 0 - 7
+\begin{enumerate}
+\item How strong do you think the candidate's stance on crime is?
+\item How much do you think the candidate supports the US inclusion in the Vietnam War?
+\end{enumerate}
+\item Sentiment (2 Items) Thermometer 0 - 100
+\begin{enumerate} 
+\item  How much do you like the candidate as a potential president? 
+\item  How much do you like the candidate in general?
+\end{enumerate}
+\end{itemize}
+See \citep{judd1983judging} for detailed explanation of the items and hypothesis.
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Import the data}
+<<sess1>>=
+dat<- read.table("data/data_kj.dat", header = TRUE)
+head(dat)
+@
+\end{frame}
+
+
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Descriptive Information}
+The data have been transformed to z-score (standardized) metric.
+<<sess2>>=
+library(psych)
+dat<- data.frame(scale(dat))
+describe(dat,fast = T)
+@
+\end{frame}
+
+
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Univariate Plots}
+I am reshaping the data from wide to long to assist in plotting.
+
+<<sess3>>=
+library(ggplot2)
+library(ggridges)
+library(GGally)
+library(reshape2)
+dat_long <- melt(dat)
+
+head(dat_long)
+tail(dat_long)
+@
+\begin{center}
+<<sess4, fig = T>>=
+ggplot(data = dat_long, aes(y = variable, x = value)) +
+  geom_density_ridges() + theme_ridges()+
+  scale_y_discrete(expand = c(0.01, 0))+
+  scale_x_continuous(expand = c(0, 0))
+@
+\end{center}
+\end{frame}
+
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Bivariate plots}
+\begin{center}
+<<sess5, fig = T>>=
+ggpairs(dat,aes(alpha = 0.9),upper = list(continuous = wrap("cor", color = "black"))) +
+  theme_bw() 
+@
+\end{center}
+\end{frame}
+
+
+
+
+
+
+
+\section{Methods for Latent Interaction terms}
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Traditional Methods: Brief Look \footnote{see \cite{brandt2014simulation}, for a detailed simulation investigating these methods.}}
+\begin{itemize}
+\item Product Indicators (Kenny and Judd 1984)
+\begin{itemize}
+\item Multiply latent factor score for 2 variables to produce interaction factor
+\item Constrain Factor loadings  
+\item Positively biased, inflated type 1 error rate, unrealistic assumptions
+\end{itemize}
+\item Latent Moderated Structures \citep{klein2000maximum}
+\begin{itemize}
+\item Conditionally derived variance and covariances 
+\item Only assumes normality of the observed data
+\item Still positively biased and inflated type 1 error rate
+\end{itemize}
+\item Two Stage Method of Moments \citep{wall2003method}
+\begin{itemize}
+\item Two stage estimation, first factor model, then structural regressions
+\item Extracts factor scores from first stage to create a regression model with product indicator
+\item Less biased for polynomial effects, but interactions still see high type 1 error rates and parameter inflation
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Why Bayesian SEM?}
+
+\begin{itemize}
+
+\item Today, we will employ a Bayesian method of estimating a latent interaction term in a structural model.
+\item With current software options Bayesian methods have the most flexibility we can specify a more realistic likelihood function.
+\item Frequentist methods don't allow the general user to manipulate the likelihood function, this results in unrealistic assumptions about the data.
+\end{itemize}
+\end{frame}
+
+
+
+\section{Model Building}
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Measurement Model: CFA}
+
+We will now build the measurement model for the Kenny and Judd 1984 data
+<<sess6, fig = T>>=
+library(lavaan)
+library(semPlot)
+syntax1 <- '
+V =~ v1 + v2
+C =~ c1 + c2
+S =~ s1 + s2'
+mod1 <- cfa(model = syntax1,
+            data = dat,
+            std.lv = TRUE)
+semPaths(mod1, layout = "tree2")
+
+@
+\end{center}
+\end{frame}
+
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Measurement Model: Summary}
+<<sess7>>=
+summary(mod1)
+@
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Extension to SEM}
+\begin{center}
+<<sess8, fig = T, warning = FALSE>>=
+syntax2 <- '
+V =~ v1 + v2
+C =~ c1 + c2
+S =~ s1 + s2
+C ~ V + S'
+mod2 <- sem(model = syntax2,
+            data = dat,
+            std.lv = TRUE)
+semPaths(mod2, layout = "tree")
+@
+\end{center}
+\end{frame}
+
+
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{SEM: Summary}
+<<sess9, echo = FALSE>>=
+summary(mod2)
+@
+\end{frame}
+
+
+
+
+
+
+
+\section{SEM: Interaction Terms}
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{SEM: Interaction Term}
+
+<<sess91, echo = FALSE, fig=TRUE>>=
+semPaths(mod2)
+@
+
+Goal: Create product term equivalent for latent variables
+{\huge$$\xi_{1} \cdot \xi_{2} $$}
+With our working example:
+{\huge$$ S \cdot V $$}
+\end{frame}
+
+
+
+\section{Bayesian SEM with Interaction Terms}
+
+
+\subsection{Pre-Proccessing}
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Bayesian SEM: Kenny and Judd Data}
+Now we will conduct the \emph{pre-processing} stage of the analysis
+\begin{enumerate}
+\item First we import the data and center the "predictors"
+<<sess111, echo = T,eval = F>>=
+dat.kj <- read.table("data/data_kj.dat", header=T)
+
+dat.kj$v1 <- dat.kj$v1-mean(dat.kj$v1)
+dat.kj$v2 <- dat.kj$v2-mean(dat.kj$v2)
+dat.kj$s1 <- dat.kj$s1-mean(dat.kj$s1)
+dat.kj$s2 <- dat.kj$s2-mean(dat.kj$s2)
+@
+\framebreak
+
+
+
+
+\item The next stage is to generate the appropriate dimensions of our input matrices and create a list of their elements
+<<sess12, echo = T,eval = F>>=
+N <- nrow(dat.kj)
+x <- cbind(dat.kj$v1,
+           dat.kj$v2,
+           dat.kj$s1,
+           dat.kj$s2)
+y <- cbind(dat.kj$c1,
+           dat.kj$c2)
+Kx <- ncol(x)
+Ky <- ncol(y)
+datstan <- list(N, Kx, Ky, y, x)
+@
+\framebreak
+
+
+
+\subsection{STAN Model Syntax}
+
+The following STAN code was adapted with permission from \cite{brandt2014simulation}.
+
+
+
+\item Now we will look at the STAN syntax file starting with the data stanza
+\end{enumerate}
+\begin{lstlisting}
+data {
+  int<lower=0> N;
+  int<lower=0> Kx;
+  int<lower=0> Ky;
+  matrix[N,Kx] x;
+  matrix[N,Ky] y;
+}
+\end{lstlisting}
+\framebreak
+
+
+
+
+
+The parameter stanza provides information that we wish to sample, it is our list of coefficients of interest
+\begin{lstlisting}
+parameters {
+  real      b0;                // Int eta
+  vector[5] b1;                // Reg coef 
+  vector<lower=0>[Kx] sigmax;  // Res var X
+  vector<lower=0>[Ky] sigmay;  // Res var Y
+  real<lower=0>      sigmaeta; // Res var Eta
+  vector<lower=0>[2] sigmaxi;  // Var xi
+  vector[N]   eta;             // Lat var mat
+  cholesky_factor_corr[2] L1;  // Cholesky speed
+  matrix[N,2] zi;              // Z mat for Chol
+}
+\end{lstlisting}
+\framebreak
+
+
+
+
+
+The transformed parameter stanza includes the measurement and structural specifications
+\begin{lstlisting}
+transformed parameters {
+  matrix[N,Kx] mux;     // E[x|xi]
+  matrix[N,Ky] muy;     // E[y|eta]
+  vector[N]   mueta;    // E[eta|xi]
+  matrix[N,2] xi;       // Xi 
+  xi = zi*diag_pre_multiply(sigmaxi,L1)'; // Cholesky version of Xi
+\end{lstlisting}
+\framebreak
+
+
+
+
+
+This is the measurement model denoting the factor loadings
+\begin{lstlisting}
+  for (i in 1:N){
+    mux[i,1] = xi[i,1]; // item 1 on F1
+    mux[i,2] = xi[i,1]; // item 2 on F1
+    mux[i,3] = xi[i,2]; // item 3 on F2
+    mux[i,4] = xi[i,2]; // item 4 on F2
+    muy[i,1] = eta[i];  // item 5 on Eta
+    muy[i,2] = eta[i];  // item 6 on Eta
+\end{lstlisting}
+\framebreak
+
+
+
+
+
+<<sess121, echo = T,fig = T>>=
+semPaths(mod2)
+@
+\framebreak
+
+
+
+
+This is the structural portion of the model, specifying the latent regressions
+\begin{lstlisting}
+    mueta[i] = b0
+              +b1[1]*xi[i,1]
+              +b1[2]*xi[i,2]
+              +b1[3]*xi[i,1]*xi[i,1]
+              +b1[4]*xi[i,1]*xi[i,2]
+              +b1[5]*xi[i,2]*xi[i,2];
+   }
+}
+\end{lstlisting}
+\framebreak
+
+
+
+
+
+Finally, we specify the likelihood and parameter priors in the model stanza
+\begin{lstlisting}
+model {
+  for(z in 1:4){x[,z] ~ normal(mux[,z],sigmax[z]);}
+  for(z in 1:2){y[,z] ~ normal(muy[,z],sigmay[z]);}
+  eta ~ normal(mueta,sigmaeta); //latent 
+  to_vector(zi) ~ normal(0,1);  //Cholesky 
+  b0 ~ normal(0,1);             //Reg coefs
+  b1 ~ normal(0,1);
+  sigmax   ~ cauchy(0,2.5);     //Prior SDs 
+  sigmay   ~ cauchy(0,2.5);
+  sigmaeta ~ cauchy(0,2.5);
+  sigmaxi  ~ cauchy(0,2.5); 
+  L1 ~ lkj_corr_cholesky(2);}   // Cholesky prior
+\end{lstlisting}
+\framebreak
+
+
+
+
+
+The final stage is to deploy the model using Rstan. We use 2000 iterations disregarding half as warm up. We use 2 chains in this analysis.
+\begin{lstlisting}
+rt1  <- stanc("STAN/sem1b.stan") 
+sm1  <- stan_model(stanc_ret = rt1, verbose=FALSE)
+fit1 <- sampling(sm1, data=datstan,
+                 chains = 2, itter = 2000,
+                 warmup = 1000)
+\end{lstlisting}
+\end{frame}
+
+
+
+
+\subsection{Post-Proccessing}
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Convergence & Estimates}
+Stan objects can be very large, and computationally time consuming. For today's purpose we will import an already fit stan model.
+<<sess13>>=
+fit1 <- readRDS("stan/KJ_stan_model.rds")
+names(fit1)[1:6]  <- c("Intercept",
+                       "Voter",
+                       "Sentiment",
+                       "Voter^2",
+                       "VoterXSent",
+                       "Sentiment^2")
+@
+\framebreak
+
+
+First we must assess convergence of the Markov Chains. Rhat is a common statistic for assessing convergence, Rhat values Greater than 1.1 are typically thought to be non-converged.
+<<sess14, fig = TRUE>>=
+rstan::stan_rhat(fit1)
+@
+\framebreak
+
+
+
+The mixing of the chains in the trace plots suggest good convergence
+<<sess15, fig = TRUE>>=
+rstan::stan_trace(fit1,"b1")
+@
+\framebreak
+
+
+
+Now that we have determined proper convergence of the solution we can assess the parameter estimates
+<<sess16, fig = TRUE>>=
+rstan::stan_dens(fit1,"b1",separate_chains =T)
+@
+\framebreak
+
+
+
+Here we can print the parameters of interest in the model
+<<sess17>>=
+
+params <- c("b0","b1","sigmay","sigmax","sigmaeta","phi")
+
+print(fit1,pars=params)
+
+@
+\framebreak
+
+
+\subsection{Plotting the Interaction Effect}
+
+
+
+\begin{figure}
+\includegraphics[width=\linewidth]{importfigs/Latent_Interaction.pdf}
+\caption{Latent Interaction: breaking down the complicated effect}
+\label{fig:latent1}
+\end{figure}
+\ref(latent1)
+\end{frame}
+
+
+
+\section{Comparison of Estimates Between Methods}
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Comparison of Methods}
+This table contains the estimates from a the methods we discussed today
+<<sess18, echo = FALSE>>=
+tab_dat <- data.frame(`Regression Path` = c("Voter", "Sentiment", "Voter^2", "Sentiment^2", "Voter x Sentiment"),
+                      `KJ 1984` = c("0.180", "-0.111", "0.009", "-0.019", "0.207"),
+                      `Mplus LMS`= c("0.219", "-0.237", "0.048", "-0.032", "0.193"),
+                      `Lavaan` = c("0.232","-0.243","NA","NA","NA"),
+                      Bayesian = c("0.192", "-0.163", "0.042", "-0.031", "0.16"))
+
+colnames(tab_dat) <- c("Regression Path", "K&J 1984", "Mplus LMS","Lavaan", "Bayesian")
+
+pander::pander(tab_dat)
+@
+\end{frame}
+
+
+
+
+\begin{frame}[allowframebreaks]
+\frametitle{References}
+\bibliographystyle{apalike2}
+\bibliography{../../sem}
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}[containsverbatim, allowframebreaks]
+\frametitle{Session}
+<<sess80>>=
+sessionInfo()
+@
+
+<<opts81, include=F>>=
+## Don't delete this. It puts the interactive session options
+## back the way they were. If this is compiled within a session
+## it is vital to do this.
+options(opts.orig)
+options(par.orig)
+@
+\end{frame}
+
+
+
+
+
+
+\end{document}
